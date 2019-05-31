@@ -18,14 +18,31 @@ function getSalesforceDates() {
         dataType: "jsonP",
 
         error: function(error){
-            alert("Error Occured");
+            alert("Error Occurred");
             console.log("Failed ajax call" , error);
         },
         
-        success: function(response){
-            console.log("DATA:", response);
-        }
+        success: function(data){
+            console.log("DATA:", data);
+            $.each(data, function(key, value){
+                //console.log("event ID", value.start,value.end)
+                var start= value.start;
+                var end = value.end;
+
+                for ( i = 0; i < data.length; i++) {
+                    var start= value.start;
+                    var end = value.end;
+                    $('data'+start[i]).append('<tr><td>' + start +'</td></tr>');
+                    $('data'+end[i]).append('<tr><td>' + end + '</td></tr>');
+                    
+                    }
+
+
         
+                
+            })
+        } 
 
     });
+
 }
