@@ -24,21 +24,33 @@ function getSalesforceDates() {
         
         success: function(data){
             console.log("DATA:", data);
+            
             $.each(data, function(key, value){
-                //console.log("event ID", value.start,value.end)
-                var start= value.start;
-                var end = value.end;
+                //console.log("Date", value.start,value.end)
+                //console.log("Event", value.eventUrl)
+                //console.log("Event", value.eventUrl)
+                var start= new Date(value.start);
+                var end= new Date(value.end);
+                var url =value.eventUrl;
+          
+            $('.show').append( 
 
-                for ( i = 0; i < data.length; i++) {
-                    var start= value.start;
-                    var end = value.end;
-                    $('data'+start[i]).append('<tr><td>' + start +'</td></tr>');
-                    $('data'+end[i]).append('<tr><td>' + end + '</td></tr>');
-                    
-                    }
+            '<div class="data">'+
 
-
-        
+            '<div class="left">'+ 
+            start+' to '+
+            end +
+            '</div>'+
+  
+            '<div class="right">'+    
+            
+            '<button id="button" onclick="window.open(\''+url+'\',\'_blank\')">Register</button>'+
+            // '<a id="button" href="https://staging-stthomas.cs42.force.com/applicantportal/USTEventRegister?instanceID=a3456000000HNn1AAG" target="_blank">Register</a>'+
+            // '</div>'+
+           
+            
+            '</div>'
+            )
                 
             })
         } 
