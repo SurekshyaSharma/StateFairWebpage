@@ -1,7 +1,6 @@
 $(document).ready(function () {
 
-    console.log("Surekshya Sharma");
-
+    console.log("Here we go");
 
     getSalesforceDates();
 }); 
@@ -27,19 +26,24 @@ function getSalesforceDates() {
             
             $.each(data, function(key, value){
                 //console.log("Date", value.start,value.end)
-                //console.log("Event", value.eventUrl)
-                //console.log("Event", value.eventUrl)
+
+                //gives the value in Date format
                 var start= new Date(value.start);
-                var end= new Date(value.end);
-                var url =value.eventUrl;
+                console.log(start.toLocaleString());
+                 //gives the time in am/pm
+                var starttime = start.toLocaleString();
+
+                var end = new Date(value.end);
+                var endtime = end.toLocaleString();
+                var url = value.eventUrl;
           
             $('.show').append( 
 
             '<div class="data">'+
 
             '<div class="left">'+ 
-            start+' to '+
-            end +
+            starttime+' to '+
+            endtime +
             '</div>'+
   
             '<div class="right">'+    
