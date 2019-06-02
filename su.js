@@ -33,24 +33,24 @@ function getSalesforceDates() {
                 var end = new Date(value.end);
 
                 //gives the date and time 
-                //console.log(start.toLocaleString());
+                console.log(start.toLocaleString());
                 //console.log(end.toLocaleString());
-                var starttime = start.toLocaleString();
-                var endtime = end.toLocaleString();
+                var starttime = start.toLocaleString('en-US', { hour: '2-digit', minute: '2-digit' });
+                var endtime = end.toLocaleString('en-US', { hour: '2-digit', minute: '2-digit' });
              
                 var url = value.eventUrl;
 
-                var STtime = start.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' });
+                var STtime = start.toLocaleTimeString( { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
                 //gives pm and am.
-                console.log('Month:', STtime);
+                //console.log('Month:', STtime);
 
           
             $('.show').append( 
 
             '<div class="data">'+
 
-            '<div class="left">' +
-            starttime+ ' to '+
+            '<div class="left">' +' '+
+            starttime+ ' - '+
             endtime +
             '</div>'+
   
